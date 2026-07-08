@@ -1,0 +1,24 @@
+id: DR-EDR-002
+title: osascript Used to Simulate Keystrokes
+status: experimental
+description: >
+  Detects use of macOS osascript to drive System Events keystroke
+  injection. This is a known technique for credential theft (typing into
+  password prompts) and for defense evasion (dismissing security
+  dialogs) on macOS.
+attack_technique: T1059.002  # Command and Scripting Interpreter: AppleScript
+attack_tactic: Execution
+severity: medium
+source_system: edr
+logsource:
+  service: endpoint
+detection:
+  process_name: osascript
+  condition_contains:
+    field: raw.command_line
+    value: keystroke
+false_positives:
+  - Legitimate automation/accessibility scripts used by power users or
+    IT management tooling -- allow-list by signed script hash.
+references:
+  - https://attack.mitre.org/techniques/T1059/002/

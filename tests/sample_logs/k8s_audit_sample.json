@@ -1,0 +1,46 @@
+{
+  "kind": "EventList",
+  "apiVersion": "audit.k8s.io/v1",
+  "items": [
+    {
+      "level": "RequestResponse",
+      "auditID": "8f2c1e10-90a1-4b3e-a1c2-000000000001",
+      "stage": "ResponseComplete",
+      "requestURI": "/api/v1/namespaces/kube-system/secrets",
+      "verb": "list",
+      "user": {
+        "username": "system:serviceaccount:default:build-runner",
+        "groups": ["system:serviceaccounts"]
+      },
+      "sourceIPs": ["10.0.4.17"],
+      "objectRef": {
+        "resource": "secrets",
+        "namespace": "kube-system"
+      },
+      "responseStatus": {"code": 200},
+      "requestReceivedTimestamp": "2026-07-08T14:25:11.000Z",
+      "stageTimestamp": "2026-07-08T14:25:11.120Z"
+    },
+    {
+      "level": "Metadata",
+      "auditID": "8f2c1e10-90a1-4b3e-a1c2-000000000002",
+      "stage": "ResponseComplete",
+      "requestURI": "/api/v1/namespaces/prod/pods/checkout-7d9f/exec",
+      "verb": "create",
+      "user": {
+        "username": "system:serviceaccount:default:build-runner",
+        "groups": ["system:serviceaccounts"]
+      },
+      "sourceIPs": ["10.0.4.17"],
+      "objectRef": {
+        "resource": "pods",
+        "subresource": "exec",
+        "namespace": "prod",
+        "name": "checkout-7d9f"
+      },
+      "responseStatus": {"code": 201},
+      "requestReceivedTimestamp": "2026-07-08T14:26:40.000Z",
+      "stageTimestamp": "2026-07-08T14:26:40.340Z"
+    }
+  ]
+}

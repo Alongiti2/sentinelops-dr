@@ -1,0 +1,22 @@
+id: DR-EDR-001
+title: Download-and-Execute Pattern (curl | bash)
+status: stable
+description: >
+  Detects a process command line matching the classic "curl | bash" or
+  similar download-and-execute pattern, commonly used to fetch and run a
+  second-stage payload.
+attack_technique: T1105  # Ingress Tool Transfer
+attack_tactic: Command and Control
+severity: critical
+source_system: edr
+logsource:
+  service: endpoint
+detection:
+  condition_regex:
+    field: raw.command_line
+    pattern: "(curl|wget)\\s.+\\|\\s*(bash|sh)"
+false_positives:
+  - Legitimate install scripts for developer tooling (e.g. official
+    package manager bootstrap scripts) -- allow-list by known-good URL.
+references:
+  - https://attack.mitre.org/techniques/T1105/

@@ -1,0 +1,89 @@
+{
+  "rules": [
+    {
+      "rule_id": "DR-CLOUD-002",
+      "title": "New IAM Access Key Created for Service Account",
+      "attack_technique": "T1098",
+      "severity": "medium",
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": null,
+      "recall": null
+    },
+    {
+      "rule_id": "DR-CLOUD-001",
+      "title": "S3 Bucket Policy Made Publicly Readable",
+      "attack_technique": "T1530",
+      "severity": "high",
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "rule_id": "DR-EDR-001",
+      "title": "Download-and-Execute Pattern (curl | bash)",
+      "attack_technique": "T1105",
+      "severity": "critical",
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "rule_id": "DR-EDR-002",
+      "title": "osascript Used to Simulate Keystrokes",
+      "attack_technique": "T1059.002",
+      "severity": "medium",
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": null,
+      "recall": null
+    },
+    {
+      "rule_id": "DR-K8S-001",
+      "title": "Service Account Listed Secrets in kube-system Namespace",
+      "attack_technique": "T1552.007",
+      "severity": "high",
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "rule_id": "DR-K8S-002",
+      "title": "Exec Into Production Pod",
+      "attack_technique": "T1609",
+      "severity": "medium",
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    }
+  ],
+  "generated_events": 7,
+  "eval_latency_ms": 0.642,
+  "coverage": {
+    "techniques_with_rules": 6,
+    "techniques_validated_by_replay": 4,
+    "technique_list": [
+      "T1059.002",
+      "T1098",
+      "T1105",
+      "T1530",
+      "T1552.007",
+      "T1609"
+    ]
+  },
+  "summary": {
+    "rule_count": 6,
+    "avg_precision": 1.0,
+    "avg_recall": 1.0
+  }
+}

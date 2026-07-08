@@ -1,0 +1,19 @@
+id: DR-CLOUD-002
+title: New IAM Access Key Created for Service Account
+status: stable
+description: >
+  Detects creation of a new long-lived IAM access key. Long-lived keys on
+  service accounts are a common persistence mechanism for attackers who
+  have compromised an automation identity.
+attack_technique: T1098  # Account Manipulation
+attack_tactic: Persistence
+severity: medium
+source_system: aws_cloudtrail
+logsource:
+  service: iam
+detection:
+  event_name: CreateAccessKey
+false_positives:
+  - Legitimate key rotation performed by platform/DevOps teams
+references:
+  - https://attack.mitre.org/techniques/T1098/

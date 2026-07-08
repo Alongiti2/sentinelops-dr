@@ -1,0 +1,25 @@
+id: DR-K8S-002
+title: Exec Into Production Pod
+status: stable
+description: >
+  Detects an exec (interactive shell) request into a pod running in the
+  prod namespace. Exec is a common technique for both legitimate
+  break-glass debugging and attacker lateral movement/persistence once a
+  cluster identity is compromised -- treat as high-signal and pair with
+  identity + time-of-day context during triage.
+attack_technique: T1609  # Container Administration Command
+attack_tactic: Execution
+severity: medium
+source_system: k8s_audit
+logsource:
+  service: kube-apiserver
+detection:
+  verb: create
+  target_resource: pods
+  target_namespace: prod
+  requestURI_contains: /exec
+false_positives:
+  - Approved on-call debugging sessions (correlate against change/incident
+    ticket to suppress).
+references:
+  - https://attack.mitre.org/techniques/T1609/

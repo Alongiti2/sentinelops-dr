@@ -1,0 +1,22 @@
+id: DR-CLOUD-001
+title: S3 Bucket Policy Made Publicly Readable
+status: stable
+description: >
+  Detects when an S3 bucket policy is modified to grant access to
+  Principal "*" (anyone), which can expose sensitive data such as
+  Terraform state files or model artifacts.
+attack_technique: T1530  # Data from Cloud Storage Object
+attack_tactic: Collection
+severity: high
+source_system: aws_cloudtrail
+logsource:
+  service: s3
+detection:
+  event_name: PutBucketPolicy
+  condition_contains:
+    field: raw.requestParameters.bucketPolicy
+    value: "\"Principal\":\"*\""
+false_positives:
+  - Intentional public static-website hosting buckets (should be allow-listed)
+references:
+  - https://attack.mitre.org/techniques/T1530/

@@ -1,0 +1,45 @@
+{
+  "Records": [
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2026-07-08T14:22:31Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "CreateAccessKey",
+      "awsRegion": "us-west-2",
+      "sourceIPAddress": "203.0.113.45",
+      "userAgent": "aws-cli/2.15.0",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "svc-deploy-bot",
+        "accountId": "621397680139"
+      },
+      "requestParameters": {
+        "userName": "svc-deploy-bot"
+      },
+      "responseElements": {
+        "accessKey": {
+          "accessKeyId": "AKIAEXAMPLE00000001",
+          "status": "Active"
+        }
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2026-07-08T14:23:02Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutBucketPolicy",
+      "awsRegion": "us-west-2",
+      "sourceIPAddress": "203.0.113.45",
+      "userAgent": "aws-cli/2.15.0",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "svc-deploy-bot",
+        "accountId": "621397680139"
+      },
+      "requestParameters": {
+        "bucketName": "cis410-delphin-tfstate",
+        "bucketPolicy": "{\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"s3:GetObject\"}]}"
+      }
+    }
+  ]
+}
